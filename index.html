@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rap du Réel | Album : Les musiques qui fon réfrêlihir</title>
+    <style>
+        :root {
+            --primary: #e63946; /* Rouge vif pour le bouton play */
+            --accent: #f1faee;
+            --bg: #0a0a0a; /* Fond très sombre */
+            --card-bg: #141414; /* Fond des cartes */
+            --text: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.5; }
+        
+        /* Header style "Image" */
+        header {
+            padding: 120px 20px;
+            /* Image de ville la nuit en fond */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=2064&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        .header-date { font-size: 0.9rem; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { font-size: 4rem; margin: 0; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; }
+        .album-title { font-size: 1.4rem; color: #ccc; font-weight: 400; margin-top: 10px; }
+        
+        .container { max-width: 1200px; margin: auto; padding: 50px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        
+        /* Style des miniatures vidéo */
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            cursor: pointer;
+            background-color: #000;
+        }
+        .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s; }
+        .video-thumbnail:hover img { opacity: 0.7; }
+        /* Bouton Play au centre */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--primary);
+            z-index: 2;
+            pointer-events: none; /* Le clic passe à travers vers le conteneur */
+        }
+        /* La vidéo une fois chargée */
+        .card iframe { width: 100%; height: 200px; border: none; display: none; }
+
+        .card-content { padding: 20px; }
+        .card-title { font-size: 1.3rem; margin: 0 0 8px 0; font-weight: 600; }
+        .card-desc { font-size: 0.9rem; color: #aaa; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        .lyrics-toggle { background: #333; color: #eee; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; width: 100%; text-align: left; }
+        .lyrics-toggle:hover { background: #444; }
+        .lyrics-content { background: #1a1a1a; padding: 15px; margin-top: 10px; border-radius: 4px; font-size: 0.85rem; display: none; white-space: pre-line; color: #ccc; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-date">Jeudi 29 janvier 2026</div>
+    <h1>RAP DU RÉEL</h1>
+    <div class="album-title">Album : Les musiques qui fon réfrêlihir</div>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <div class="card">
+            <div class="video-thumbnail" onclick="loadVideo(this, 'dzALZlJec0k')">
+                <img src="https://img.youtube.com/vi/dzALZlJec0k/maxresdefault.jpg" alt="Écran noir yeux ouverts">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allowfullscreen></iframe>
+            
+            <div class="card-content">
+                <h3 class="card-title">Écran noir yeux ouverts</h3>
+                <p class="card-desc">On passe nos vies sur nos téléphones à regarder les autres vivre...</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"Écran noir yeux ouverts, on a les yeux collés à l'écran dès le réveil... On passe nos vies sur nos téléphones à regarder les autres vivre pendant que la nôtre s'endort."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-thumbnail" onclick="loadVideo(this, 'GXVbhG6dqco')">
+                <img src="https://img.youtube.com/vi/GXVbhG6dqco/maxresdefault.jpg" alt="La poudre fait semblant">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allowfullscreen></iframe>
+            <div class="card-content">
+                <h3 class="card-title">La poudre fait semblant</h3>
+                <p class="card-desc">La drogue fait semblant de remplir les vides mais elle prend tout lentement.</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"La drogue fait semblant de remplir les vides, de calmer le sang, mais elle prend tout lentement... tes rêves, ton temps, les gens qui t'aiment vraiment."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-thumbnail" onclick="loadVideo(this, 'si7EFXSKhGQ')">
+                <img src="https://img.youtube.com/vi/si7EFXSKhGQ/maxresdefault.jpg" alt="On crève debout">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allowfullscreen></iframe>
+            <div class="card-content">
+                <h3 class="card-title">On crève debout</h3>
+                <p class="card-desc">Hommage à ceux qui nourrissent la nation et qu'on ignore.</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"Je nourris la nation mais la nation m'ignore... On crève debout, tracteur en première... Sans paysan il n'y a pas de pays."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-thumbnail" onclick="loadVideo(this, 'cKMpXm1BDck')">
+                <img src="https://img.youtube.com/vi/cKMpXm1BDck/maxresdefault.jpg" alt="Guerre mondiale">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allowfullscreen></iframe>
+            <div class="card-content">
+                <h3 class="card-title">Guerre mondiale, cerveaux éteints</h3>
+                <p class="card-desc">La liberté meurt quand les balles parlent trop fort.</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"La guerre c'est des billets, du pétrole, des parts de marché... Les héros finissent dans des cercueils... La guerre n'est pas un jeu."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-thumbnail" onclick="loadVideo(this, '1Rjdsb9_njc')">
+                <img src="https://img.youtube.com/vi/1Rjdsb9_njc/maxresdefault.jpg" alt="Planète en PLS">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allowfullscreen></iframe>
+            <div class="card-content">
+                <h3 class="card-title">Planète en PLS</h3>
+                <p class="card-desc">On saccage notre maison de nos propres mains. Réveille-toi !</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"La terre est en PLS pendant qu'on fait les malins... On saccage notre maison de nos propres mains. Il n'y a pas de planète B."</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Fonction pour charger la vidéo au clic sur la miniature
+    function loadVideo(thumbnailElement, videoId) {
+        var card = thumbnailElement.parentElement;
+        var iframe = card.querySelector('iframe');
+        // On construit l'URL YouTube pour le lecteur
+        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+        // On cache la miniature et on affiche le lecteur
+        thumbnailElement.style.display = 'none';
+        iframe.style.display = 'block';
+    }
+
+    // Fonction pour afficher/cacher les paroles
+    function toggleLyrics(button) {
+        var content = button.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            button.textContent = 'Voir les paroles';
+        } else {
+            content.style.display = 'block';
+            button.textContent = 'Masquer les paroles';
+        }
+    }
+</script>
+
+</body>
+</html>
