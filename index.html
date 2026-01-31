@@ -6,18 +6,18 @@
     <title>Rap du Réel | Album : Les musiques qui fon réfrêlihir</title>
     <style>
         :root {
-            --primary: #e63946; /* Rouge vif pour le bouton play */
-            --accent: #f1faee;
-            --bg: #0a0a0a; /* Fond très sombre */
-            --card-bg: #141414; /* Fond des cartes */
+            --primary: #e63946; /* Rouge vif */
+            --primary-hover: #ff5252;
+            --youtube-red: #FF0000;
+            --bg: #0a0a0a;
+            --card-bg: #141414;
             --text: #ffffff;
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.5; }
         
-        /* Header style "Image" */
+        /* Header style */
         header {
-            padding: 120px 20px;
-            /* Image de ville la nuit en fond */
+            padding: 100px 20px;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=2064&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -25,7 +25,37 @@
         }
         .header-date { font-size: 0.9rem; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
         h1 { font-size: 4rem; margin: 0; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; }
-        .album-title { font-size: 1.4rem; color: #ccc; font-weight: 400; margin-top: 10px; }
+        .album-title { font-size: 1.4rem; color: #ccc; font-weight: 400; margin-top: 10px; margin-bottom: 30px; }
+
+        /* Conteneur des boutons d'action */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Style des boutons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        .btn-download { background-color: var(--primary); }
+        .btn-download:hover { background-color: var(--primary-hover); }
+
+        .btn-subscribe { background-color: var(--youtube-red); }
+        .btn-subscribe:hover { background-color: #cc0000; }
         
         .container { max-width: 1200px; margin: auto; padding: 50px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -33,28 +63,25 @@
         .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; transition: transform 0.3s ease; }
         .card:hover { transform: translateY(-5px); }
         
-        /* Style des miniatures vidéo */
-        .video-thumbnail {
+        /* Miniatures Vidéo */
+        .video-wrapper {
             position: relative;
             width: 100%;
             height: 200px;
-            cursor: pointer;
             background-color: #000;
+            cursor: pointer;
         }
-        .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s; }
-        .video-thumbnail:hover img { opacity: 0.7; }
-        /* Bouton Play au centre */
+        .video-thumbnail {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;
+        }
+        .video-wrapper:hover .video-thumbnail { opacity: 0.7; }
         .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: var(--primary);
-            z-index: 2;
-            pointer-events: none; /* Le clic passe à travers vers le conteneur */
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: var(--primary); pointer-events: none;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        /* La vidéo une fois chargée */
+        
+        /* Iframe caché par défaut */
         .card iframe { width: 100%; height: 200px; border: none; display: none; }
 
         .card-content { padding: 20px; }
@@ -69,21 +96,43 @@
 <body>
 
 <header>
-    <div class="header-date">Jeudi 29 janvier 2026</div>
+    <div class="header-date">Samedi 31 janvier 2026</div>
     <h1>RAP DU RÉEL</h1>
     <div class="album-title">Album : Les musiques qui fon réfrêlihir</div>
+    
+    <div class="action-buttons">
+        <a href="https://drive.google.com/drive/folders/16Wx0DkOuuPeVDrjtMGYOiLiMzombCCKl?usp=sharing" target="_blank" class="btn btn-download">
+            📥 TÉLÉCHARGER L'ALBUM
+        </a>
+        <a href="https://www.youtube.com/channel/UChDeHVOCiPhdqbzwyDIJ2vw?sub_confirmation=1" target="_blank" class="btn btn-subscribe">
+            ▶ S'ABONNER À LA CHAÎNE
+        </a>
+    </div>
 </header>
 
 <div class="container">
     <div class="grid">
 
         <div class="card">
-            <div class="video-thumbnail" onclick="loadVideo(this, 'dzALZlJec0k')">
-                <img src="https://img.youtube.com/vi/dzALZlJec0k/maxresdefault.jpg" alt="Écran noir yeux ouverts">
+            <div class="video-wrapper" onclick="loadVideo(this, 'ep_XnGHT_Tw')">
+                <img src="https://img.youtube.com/vi/ep_XnGHT_Tw/maxresdefault.jpg" class="video-thumbnail" alt="Jetés comme des objets">
                 <div class="play-button">▶</div>
             </div>
-            <iframe allowfullscreen></iframe>
-            
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-content">
+                <h3 class="card-title">Jetés comme des objets</h3>
+                <p class="card-desc">Un texte bouleversant sur l'abandon des animaux. Adopté sur un coup de tête, abandonné sur un bas-côté.</p>
+                <button class="lyrics-toggle" onclick="toggleLyrics(this)">Voir les paroles</button>
+                <div class="lyrics-content">"Adopté sur un coup de tête, abandonné sur un bas côté... Un animal c'est pas un jouet ni un caprice de Noël."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-wrapper" onclick="loadVideo(this, 'dzALZlJec0k')">
+                <img src="https://img.youtube.com/vi/dzALZlJec0k/maxresdefault.jpg" class="video-thumbnail" alt="Écran noir yeux ouverts">
+                <div class="play-button">▶</div>
+            </div>
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
                 <h3 class="card-title">Écran noir yeux ouverts</h3>
                 <p class="card-desc">On passe nos vies sur nos téléphones à regarder les autres vivre...</p>
@@ -93,11 +142,11 @@
         </div>
 
         <div class="card">
-            <div class="video-thumbnail" onclick="loadVideo(this, 'GXVbhG6dqco')">
-                <img src="https://img.youtube.com/vi/GXVbhG6dqco/maxresdefault.jpg" alt="La poudre fait semblant">
+            <div class="video-wrapper" onclick="loadVideo(this, 'GXVbhG6dqco')">
+                <img src="https://img.youtube.com/vi/GXVbhG6dqco/maxresdefault.jpg" class="video-thumbnail" alt="La poudre fait semblant">
                 <div class="play-button">▶</div>
             </div>
-            <iframe allowfullscreen></iframe>
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
                 <h3 class="card-title">La poudre fait semblant</h3>
                 <p class="card-desc">La drogue fait semblant de remplir les vides mais elle prend tout lentement.</p>
@@ -107,11 +156,11 @@
         </div>
 
         <div class="card">
-            <div class="video-thumbnail" onclick="loadVideo(this, 'si7EFXSKhGQ')">
-                <img src="https://img.youtube.com/vi/si7EFXSKhGQ/maxresdefault.jpg" alt="On crève debout">
+            <div class="video-wrapper" onclick="loadVideo(this, 'si7EFXSKhGQ')">
+                <img src="https://img.youtube.com/vi/si7EFXSKhGQ/maxresdefault.jpg" class="video-thumbnail" alt="On crève debout">
                 <div class="play-button">▶</div>
             </div>
-            <iframe allowfullscreen></iframe>
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
                 <h3 class="card-title">On crève debout</h3>
                 <p class="card-desc">Hommage à ceux qui nourrissent la nation et qu'on ignore.</p>
@@ -121,11 +170,11 @@
         </div>
 
         <div class="card">
-            <div class="video-thumbnail" onclick="loadVideo(this, 'cKMpXm1BDck')">
-                <img src="https://img.youtube.com/vi/cKMpXm1BDck/maxresdefault.jpg" alt="Guerre mondiale">
+            <div class="video-wrapper" onclick="loadVideo(this, 'cKMpXm1BDck')">
+                <img src="https://img.youtube.com/vi/cKMpXm1BDck/maxresdefault.jpg" class="video-thumbnail" alt="Guerre mondiale">
                 <div class="play-button">▶</div>
             </div>
-            <iframe allowfullscreen></iframe>
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
                 <h3 class="card-title">Guerre mondiale, cerveaux éteints</h3>
                 <p class="card-desc">La liberté meurt quand les balles parlent trop fort.</p>
@@ -135,11 +184,11 @@
         </div>
 
         <div class="card">
-            <div class="video-thumbnail" onclick="loadVideo(this, '1Rjdsb9_njc')">
-                <img src="https://img.youtube.com/vi/1Rjdsb9_njc/maxresdefault.jpg" alt="Planète en PLS">
+            <div class="video-wrapper" onclick="loadVideo(this, '1Rjdsb9_njc')">
+                <img src="https://img.youtube.com/vi/1Rjdsb9_njc/maxresdefault.jpg" class="video-thumbnail" alt="Planète en PLS">
                 <div class="play-button">▶</div>
             </div>
-            <iframe allowfullscreen></iframe>
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="card-content">
                 <h3 class="card-title">Planète en PLS</h3>
                 <p class="card-desc">On saccage notre maison de nos propres mains. Réveille-toi !</p>
@@ -152,18 +201,18 @@
 </div>
 
 <script>
-    // Fonction pour charger la vidéo au clic sur la miniature
-    function loadVideo(thumbnailElement, videoId) {
-        var card = thumbnailElement.parentElement;
+    function loadVideo(wrapperElement, videoId) {
+        var card = wrapperElement.parentElement;
         var iframe = card.querySelector('iframe');
-        // On construit l'URL YouTube pour le lecteur
-        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
-        // On cache la miniature et on affiche le lecteur
-        thumbnailElement.style.display = 'none';
+        
+        // On construit l'URL avec autoplay activé
+        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
+        
+        // On cache l'image et on affiche la vidéo
+        wrapperElement.style.display = 'none';
         iframe.style.display = 'block';
     }
 
-    // Fonction pour afficher/cacher les paroles
     function toggleLyrics(button) {
         var content = button.nextElementSibling;
         if (content.style.display === 'block') {
